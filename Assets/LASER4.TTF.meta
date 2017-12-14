@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4875bac90a69836408fe1ec518b8bd56
+timeCreated: 1513204549
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Laserian
+  fontNames:
+  - Laserian
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
