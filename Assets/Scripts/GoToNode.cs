@@ -26,6 +26,7 @@ public class GoToNode : MonoBehaviour
 
         while (lerpTime < 1.0f)
         {
+            endPosition = targetNode.transform.position;
             float posX = Mathf.Lerp(startPosition.x, endPosition.x, lerpTime);
             float posY = Mathf.Lerp(startPosition.y, endPosition.y, lerpTime);
             float posZ = Mathf.Lerp(startPosition.z, endPosition.z, lerpTime);

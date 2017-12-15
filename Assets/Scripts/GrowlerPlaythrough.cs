@@ -7,6 +7,7 @@ public class GrowlerPlaythrough : MonoBehaviour
     public GameObject[] panels;
     public GameObject panelParent;
     private Vector3[] startPositions = new Vector3[8];
+    public GameObject[] panelNodes;
     float eighth;
 
 	void Start ()
@@ -19,7 +20,7 @@ public class GrowlerPlaythrough : MonoBehaviour
     {
         for (int i = 0; i < 8; i++)
         {
-            panels[i].GetComponent<Animator>().SetTrigger("Enter");
+            panelNodes[(3 * i) + 0].SetActive(true);
             yield return new WaitForSeconds(eighth);
         }
         yield return new WaitForSeconds(1.0f);

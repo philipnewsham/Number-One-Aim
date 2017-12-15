@@ -12,6 +12,7 @@ TagManager:
   - Panel5
   - Panel6
   - Panel7
+  - Parent
   layers:
   - Default
   - TransparentFX
