@@ -13,9 +13,9 @@ public class LookAtMouse : MonoBehaviour
         transform.LookAt(position);
         transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, rotationZ);
 
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetMouseButton(0))
             rotationZ = rotationZ + (Time.deltaTime * rotateSpeed);
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetMouseButton(1)) 
             rotationZ = rotationZ - (Time.deltaTime * rotateSpeed);
     }
 }

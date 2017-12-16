@@ -21,12 +21,12 @@ public class GoToNode : MonoBehaviour
     IEnumerator MoveToNode()
     {
         float lerpTime = 0.0f;
-        Vector3 startPosition = transform.position;
-        Vector3 endPosition = targetNode.transform.position;
-
+        
         while (lerpTime < 1.0f)
         {
-            endPosition = targetNode.transform.position;
+            Vector3 startPosition = transform.position;
+            Vector3 endPosition = targetNode.transform.position;
+
             float posX = Mathf.Lerp(startPosition.x, endPosition.x, lerpTime);
             float posY = Mathf.Lerp(startPosition.y, endPosition.y, lerpTime);
             float posZ = Mathf.Lerp(startPosition.z, endPosition.z, lerpTime);

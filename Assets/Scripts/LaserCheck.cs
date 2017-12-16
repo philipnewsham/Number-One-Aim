@@ -6,7 +6,7 @@ public class LaserCheck : MonoBehaviour
 {
     private GameController gameController;
 
-    void Start()
+    void Awake()
     {
         gameController = FindObjectOfType<GameController>();
     }
