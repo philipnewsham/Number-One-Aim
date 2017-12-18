@@ -9,10 +9,12 @@ public class GrowlerPlaythrough : MonoBehaviour
     public GameObject[] fixedLasers;
     public GameObject randomLaser;
     public GameObject cannon;
+    public AudioSource audioSource;
 
-	void Start ()
+    public GoToNode[] panelScripts;
+	public void BeginSong()
     {
-        StartCoroutine(ExpandHole());
+        audioSource.Play();
         StartCoroutine(A());
 	}
 	
@@ -35,7 +37,7 @@ public class GrowlerPlaythrough : MonoBehaviour
         yield return new WaitForSeconds(8.0f);
         StartCoroutine(ExpandHole());
         yield return new WaitForSeconds(1.0f);
-        StartCoroutine(B());
+        //StartCoroutine(B());
 	}
 
     IEnumerator B()

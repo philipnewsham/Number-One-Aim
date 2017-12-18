@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
         hasStarted = true;
         mainLaser.SetActive(true);
         clickText.SetActive(false);
+        GetComponent<GrowlerPlaythroughUpdated>().BeginSong();
         //StartCoroutine(AddLaserBeam());
     }
 
