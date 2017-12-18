@@ -5,41 +5,6 @@ using UnityEngine.UI;
 
 public class GoToNode : MonoBehaviour
 {
-    //public string findTag;
-    //private bool isMoving;
-    //private GameObject targetNode;
-    /*
-    void Update()
-    {
-        if(!isMoving && GameObject.FindGameObjectWithTag(findTag)!=null)
-        {
-            isMoving = true;
-            targetNode = GameObject.FindGameObjectWithTag(findTag);
-            StartCoroutine(MoveToNode());
-        }
-    }
-
-    IEnumerator MoveToNode()
-    {
-        float lerpTime = 0.0f;
-        
-        while (lerpTime < 1.0f)
-        {
-            Vector3 startPosition = transform.position;
-            Vector3 endPosition = targetNode.transform.position;
-
-            float posX = Mathf.Lerp(startPosition.x, endPosition.x, lerpTime);
-            float posY = Mathf.Lerp(startPosition.y, endPosition.y, lerpTime);
-            float posZ = Mathf.Lerp(startPosition.z, endPosition.z, lerpTime);
-            transform.position = new Vector3(posX, posY, posZ);
-            lerpTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
-        }
-
-        targetNode.SetActive(false);
-        isMoving = false;
-    }
-    */
     public GameObject arrow;
     private Image arrowImage;
     public Sprite[] arrowSprites;
@@ -60,24 +25,30 @@ public class GoToNode : MonoBehaviour
     IEnumerator MoveToNode(int nodeNo, float moveTime)
     {
         int arrowNo = (nodeNo - currentNode) + 2;
+
+        Debug.LogFormat("nodeNo = {0}, currentNo = {1}, arrowNo = {2}",nodeNo,currentNode, arrowNo);
+ 
         arrowImage.sprite = arrowSprites[arrowNo];
         arrow.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         arrow.SetActive(false);
         float lerpTime = 0.0f;
-
-        while (lerpTime <= moveTime)
+        float lerpAmount = (1.0f / 7.0f)*Time.deltaTime;
+        while (lerpTime <= 1.0f)
         {
-            Vector3 startPosition = transform.position;
+            Vector3 startPosition = nodes[currentNode].transform.position;
             Vector3 endPosition = nodes[nodeNo].transform.position;
 
-            float posX = Mathf.Lerp(startPosition.x, endPosition.x, lerpTime/moveTime);
-            float posY = Mathf.Lerp(startPosition.y, endPosition.y, lerpTime/moveTime);
-            float posZ = Mathf.Lerp(startPosition.z, endPosition.z, lerpTime/moveTime);
+            float posX = Mathf.Lerp(startPosition.x, endPosition.x, lerpTime);
+            float posY = Mathf.Lerp(startPosition.y, endPosition.y, lerpTime);
+            float posZ = Mathf.Lerp(startPosition.z, endPosition.z, lerpTime);
+
             transform.position = new Vector3(posX, posY, posZ);
-            lerpTime += Time.deltaTime;
+
+            lerpTime += Time.deltaTime / moveTime;
             yield return new WaitForEndOfFrame();
         }
+        currentNode = nodeNo;
         transform.position = nodes[nodeNo].transform.position;
     }
 }
