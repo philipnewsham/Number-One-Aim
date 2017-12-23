@@ -25,9 +25,11 @@ public class GoToNode : MonoBehaviour
     IEnumerator MoveToNode(int nodeNo, float moveTime)
     {
         int arrowNo = (nodeNo - currentNode) + 2;
- 
-        arrowImage.sprite = arrowSprites[arrowNo];
-        arrow.SetActive(true);
+        if (arrowNo != 2)
+        {
+            arrowImage.sprite = arrowSprites[arrowNo];
+            arrow.SetActive(true);
+        }
         //yield return new WaitForSeconds(1.0f);
         
         float lerpTime = 0.0f;

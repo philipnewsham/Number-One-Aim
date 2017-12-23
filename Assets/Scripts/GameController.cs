@@ -57,7 +57,7 @@ public class GameController : MonoBehaviour
         mainLaser.SetActive(true);
         clickText.SetActive(false);
         GetComponent<GrowlerPlaythroughUpdated>().BeginSong();
-        //StartCoroutine(AddLaserBeam());
+        GetComponent<ParentController>().BeginSong();
     }
 
     void Reset()
