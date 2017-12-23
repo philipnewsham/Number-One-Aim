@@ -25,13 +25,11 @@ public class GoToNode : MonoBehaviour
     IEnumerator MoveToNode(int nodeNo, float moveTime)
     {
         int arrowNo = (nodeNo - currentNode) + 2;
-
-        Debug.LogFormat("nodeNo = {0}, currentNo = {1}, arrowNo = {2}",nodeNo,currentNode, arrowNo);
  
         arrowImage.sprite = arrowSprites[arrowNo];
         arrow.SetActive(true);
-        yield return new WaitForSeconds(1.0f);
-        arrow.SetActive(false);
+        //yield return new WaitForSeconds(1.0f);
+        
         float lerpTime = 0.0f;
         float lerpAmount = (1.0f / 7.0f)*Time.deltaTime;
         while (lerpTime <= 1.0f)
@@ -48,6 +46,7 @@ public class GoToNode : MonoBehaviour
             lerpTime += Time.deltaTime / moveTime;
             yield return new WaitForEndOfFrame();
         }
+        arrow.SetActive(false);
         currentNode = nodeNo;
         transform.position = nodes[nodeNo].transform.position;
     }
