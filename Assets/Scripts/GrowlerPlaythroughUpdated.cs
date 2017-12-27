@@ -35,7 +35,7 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
 
     IEnumerator PanelAnimation()
     {
-        StartSpeed();
+        //StartSpeed();
         yield return new WaitForSeconds(waitTimes[0]);
         StartCoroutine(PanelSlideIn());
         yield return new WaitForSeconds(GetWaitTime(1));
@@ -48,21 +48,23 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
         yield return new WaitForSeconds(GetWaitTime(4));
         laserController.StartTwoLasers();
         StartCoroutine(DoublePanels());
-        StopSpeed();
         yield return new WaitForSeconds(GetWaitTime(5));
+        //StopSpeed();
         laserController.StartRandomLasers(3, 1, 1, 3);
         StartCoroutine(ExpandOut());
         yield return new WaitForSeconds(GetWaitTime(6));
-        laserController.StartRandomLasers(2, 1, 1, 3);
+        laserController.StartRandomLasers(2, 1, 1, 5);
         StartCoroutine(Triangle());
         yield return new WaitForSeconds(GetWaitTime(7));
         StartCoroutine(ExpandOut());
         yield return new WaitForSeconds(GetWaitTime(8));
         Debug.Log(GetComponent<AudioSource>().time);
+        laserController.StartRandomLasers(4, 4.0f, 4.0f, 2);
         StartCoroutine(SinglePanelsTwo());
         yield return new WaitForSeconds(GetWaitTime(9));
         StartCoroutine(MexicanWave());
         yield return new WaitForSeconds(GetWaitTime(10));
+        laserController.StartRandomLasers(2, 0.5f, 0.5f, 30);
         StartCoroutine(SwappingTriangles());
         yield return new WaitForSeconds(GetWaitTime(11));
         StartCoroutine(RandomPanels());

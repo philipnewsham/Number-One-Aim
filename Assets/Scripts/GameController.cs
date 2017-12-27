@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                Reset();
+                //Reset();
             }
         }
     }
