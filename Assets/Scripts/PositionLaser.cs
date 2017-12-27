@@ -6,11 +6,11 @@ public class PositionLaser : MonoBehaviour
 {
     float rotX;
     float rotY;
-    
+    private float range = 15f;
 	void Start ()
     {
-        rotX = Random.Range(-30.0f, 30.0f);
-        rotY = Random.Range(-30.0f, 30.0f);
+        rotX = Random.Range(-range, range);
+        rotY = Random.Range(-range, range);
         transform.eulerAngles = new Vector3(rotX, rotY, 0.0f);
 	}
 }

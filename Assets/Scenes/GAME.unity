@@ -172,6 +172,18 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
   m_IsPrefabParent: 0
@@ -679,6 +691,18 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -20
       objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
   m_IsPrefabParent: 0
@@ -808,6 +832,18 @@ Prefab:
     - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
@@ -1394,6 +1430,18 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4988407477906792, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
@@ -4375,6 +4423,7 @@ GameObject:
   - component: {fileID: 2144762913}
   - component: {fileID: 2144762914}
   - component: {fileID: 2144762915}
+  - component: {fileID: 2144762916}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -4599,3 +4648,26 @@ MonoBehaviour:
   - 44
   - 99
   parentMove: {fileID: 1187020549}
+--- !u!114 &2144762916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2144762909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc6adfeba580c1948b07e0a9194e547f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fixedLasers:
+  - {fileID: 937161903}
+  - {fileID: 1583241438}
+  - {fileID: 1568322087}
+  - {fileID: 1817655909}
+  waitTimes:
+  - 15
+  - 28
+  - 0
+  miniLaser: {fileID: 1557435220103580, guid: 15276090010cc8947b9d3f10775654e7, type: 2}
+  cannon: {fileID: 1670449349}
+  tempWait: 12
