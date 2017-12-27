@@ -7,6 +7,12 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
     public GoToNode[] panelScripts;
     public float[] waitTimes;
     public bool testing;
+    private GrowlerLasers laserController;
+
+    void Start()
+    {
+        laserController = GetComponent<GrowlerLasers>();
+    }
 
     public void BeginSong()
     {
@@ -29,8 +35,7 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
 
     IEnumerator PanelAnimation()
     {
-        //Time.timeScale = 2.0f;
-        //GetComponent<AudioSource>().pitch = 2.0f;
+        StartSpeed();
         yield return new WaitForSeconds(waitTimes[0]);
         StartCoroutine(PanelSlideIn());
         yield return new WaitForSeconds(GetWaitTime(1));
@@ -38,15 +43,18 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
         yield return new WaitForSeconds(GetWaitTime(2));
         StartCoroutine(ExpandOut());
         yield return new WaitForSeconds(GetWaitTime(3));
+        laserController.StartThreeLasers();
         StartCoroutine(SinglePanels());
         yield return new WaitForSeconds(GetWaitTime(4));
+        laserController.StartTwoLasers();
         StartCoroutine(DoublePanels());
+        StopSpeed();
         yield return new WaitForSeconds(GetWaitTime(5));
+        laserController.StartRandomLasers(3, 1, 1, 3);
         StartCoroutine(ExpandOut());
         yield return new WaitForSeconds(GetWaitTime(6));
+        laserController.StartRandomLasers(2, 1, 1, 3);
         StartCoroutine(Triangle());
-        //Time.timeScale = 1.0f;
-        //GetComponent<AudioSource>().pitch = 1.0f;
         yield return new WaitForSeconds(GetWaitTime(7));
         StartCoroutine(ExpandOut());
         yield return new WaitForSeconds(GetWaitTime(8));
@@ -60,6 +68,18 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
         StartCoroutine(RandomPanels());
         yield return new WaitForSeconds(GetWaitTime(12));
         StartCoroutine(ExpandOut());
+    }
+
+    void StartSpeed()
+    {
+        Time.timeScale = 3.0f;
+        GetComponent<AudioSource>().pitch = 3.0f;
+    }
+
+    void StopSpeed()
+    {
+        Time.timeScale = 1.0f;
+        GetComponent<AudioSource>().pitch = 1.0f;
     }
 
     IEnumerator PanelSlideIn()
