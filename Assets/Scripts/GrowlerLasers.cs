@@ -21,9 +21,12 @@ public class GrowlerLasers : MonoBehaviour
         fixedLasers[1].SetActive(true);
         fixedLasers[2].SetActive(true);
         yield return new WaitForSeconds(14.0f);
-        fixedLasers[0].SetActive(false);
-        fixedLasers[1].SetActive(false);
-        fixedLasers[2].SetActive(false);
+        //fixedLasers[0].SetActive(false);
+        //fixedLasers[1].SetActive(false);
+        //fixedLasers[2].SetActive(false);
+        fixedLasers[0].GetComponentInChildren<LaserCheck>().SetActiveFalse();
+        fixedLasers[1].GetComponentInChildren<LaserCheck>().SetActiveFalse();
+        fixedLasers[2].GetComponentInChildren<LaserCheck>().SetActiveFalse();
     }
     public void StartTwoLasers()
     {
@@ -35,8 +38,10 @@ public class GrowlerLasers : MonoBehaviour
         fixedLasers[0].SetActive(true);
         fixedLasers[3].SetActive(true);
         yield return new WaitForSeconds(12.0f);
-        fixedLasers[0].SetActive(false);
-        fixedLasers[3].SetActive(false);
+        //fixedLasers[0].SetActive(false);
+        //fixedLasers[3].SetActive(false);
+        fixedLasers[0].GetComponentInChildren<LaserCheck>().SetActiveFalse();
+        fixedLasers[3].GetComponentInChildren<LaserCheck>().SetActiveFalse();
     }
 
     public void StartRandomLasers(int laserAmount, float onTime, float offTime, int loopAmount)
@@ -57,7 +62,8 @@ public class GrowlerLasers : MonoBehaviour
             yield return new WaitForSeconds(onTime);
             for (int j = 0; j < laserAmount; j++)
             {
-                Destroy(randLaser[j]);
+                //Destroy(randLaser[j]);
+                randLaser[j].GetComponentInChildren<LaserCheck>().DestroyLaser();
             }
             randLaser.Clear();
             yield return new WaitForSeconds(offTime);
