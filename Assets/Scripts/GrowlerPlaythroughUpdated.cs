@@ -33,6 +33,13 @@ public class GrowlerPlaythroughUpdated : MonoBehaviour
         GetComponent<AudioSource>().Play();
     }
 
+    public void Reset()
+    {
+        StopAllCoroutines();
+        for(int i = 0; i < 8; i++)
+            panelScripts[i].StartMove(2, 1.0f);
+    }
+
     IEnumerator PanelAnimation()
     {
         //StartSpeed();

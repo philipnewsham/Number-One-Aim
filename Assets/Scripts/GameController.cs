@@ -18,12 +18,20 @@ public class GameController : MonoBehaviour
 
     public GameObject cannon;
     public GameObject miniLaser;
+
+    private AudioSource audioSource;
+
+    private GrowlerPlaythroughUpdated playthroughController;
+    private ParentController parentController;
     
 	void Start ()
     {
         health = 100;
         healthText.text = string.Format("Health: {0}", health);
-	}
+        audioSource = GetComponent<AudioSource>();
+        playthroughController = GetComponent<GrowlerPlaythroughUpdated>();
+        parentController = GetComponent<ParentController>();
+    }
 	
 	void Update ()
     {
@@ -46,7 +54,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                //Reset();
+                StartCoroutine(Reset());
             }
         }
     }
@@ -56,12 +64,14 @@ public class GameController : MonoBehaviour
         hasStarted = true;
         mainLaser.SetActive(true);
         clickText.SetActive(false);
-        GetComponent<GrowlerPlaythroughUpdated>().BeginSong();
-        GetComponent<ParentController>().BeginSong();
+        playthroughController.BeginSong();
+        parentController.BeginSong();
     }
 
-    void Reset()
+    IEnumerator Reset()
     {
+        Debug.Log("reset");
+        isAlive = true;
         mainLaser.SetActive(false);
         clickText.GetComponent<Text>().text = "Game Over\nClick to try again";
         PositionLaser[] miniLasers = FindObjectsOfType<PositionLaser>();
@@ -71,7 +81,20 @@ public class GameController : MonoBehaviour
         hasStarted = false;
         health = 100;
         laserOutCount = 0;
-        isAlive = true;
+
+        playthroughController.Reset();
+        parentController.Reset();
+        float lerpTime = 0.0f;
+
+        while(lerpTime <= 1.0f)
+        {
+            audioSource.volume = 1 - lerpTime;
+            lerpTime += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+
+        audioSource.Stop();
+        audioSource.volume = 1;
     }
 
     public void AddLaserOut()
