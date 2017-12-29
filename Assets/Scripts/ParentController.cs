@@ -6,10 +6,17 @@ public class ParentController : MonoBehaviour
 {
     public float[] waitTimes;
     public ParentMove parentMove;
+
 	public void BeginSong()
     {
         StartCoroutine(Animation());
 	}
+
+    public void Reset()
+    {
+        StopAllCoroutines();
+        parentMove.StartMove(0, 1.0f);
+    }
 
     IEnumerator Animation()
     {
